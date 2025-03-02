@@ -66,7 +66,7 @@ import Button from "../../Button"; // plasmic-import: 6KewgYrWypyw/component
 import ProductCard from "../../ProductCard"; // plasmic-import: NQGponPaAbBk/component
 import PriceSection from "../../PriceSection"; // plasmic-import: pCaF4HoCu-73/component
 import FooterSection from "../../FooterSection"; // plasmic-import: KE3yuwb4piWn/component
-import NodeReactFlow from "../../../src/components/ReactFlow"; // plasmic-import: c9fAj3oVQEYP/codeComponent
+import { NodeReactFlow } from "../../../src/components/ReactFlow"; // plasmic-import: c9fAj3oVQEYP/codeComponent
 
 import { useScreenVariants as useScreenVariantsiuriY4TFKlwN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: IuriY4tFKlwN/globalVariant
 
