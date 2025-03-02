@@ -95,6 +95,7 @@ export type PlasmicPriceCard__OverridesType = {
   root?: Flex__<"div">;
   freeBox?: Flex__<"div">;
   h4?: Flex__<"h4">;
+  ff?: Flex__<"div">;
   link?: Flex__<"a"> & Partial<LinkProps>;
   button?: Flex__<typeof Button>;
 };
@@ -253,7 +254,7 @@ function PlasmicPriceCard__RenderFunc(props: {
             ? "Enterprise"
             : hasVariant($state, "borders", "flatLeft")
             ? "Free"
-            : "Pro"}
+            : ""}
         </h4>
         <div
           className={classNames(
@@ -452,31 +453,29 @@ function PlasmicPriceCard__RenderFunc(props: {
           </div>
           <div className={classNames(projectcss.all, sty.column__mV9Mb)}>
             <div
+              data-plasmic-name={"ff"}
+              data-plasmic-override={overrides.ff}
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text___5PtDg,
+                sty.ff,
                 {
-                  [sty.textborders_flatCenter___5PtDGjJ7Pr]: hasVariant(
+                  [sty.ffborders_flatCenter]: hasVariant(
                     $state,
                     "borders",
                     "flatCenter"
                   ),
-                  [sty.textborders_flatLeft___5PtDgWkDf2]: hasVariant(
+                  [sty.ffborders_flatLeft]: hasVariant(
                     $state,
                     "borders",
                     "flatLeft"
                   ),
-                  [sty.textborders_flatRight___5PtDg7Z3Pc]: hasVariant(
+                  [sty.ffborders_flatRight]: hasVariant(
                     $state,
                     "borders",
                     "flatRight"
                   ),
-                  [sty.textprimary___5PtDGf0CDe]: hasVariant(
-                    $state,
-                    "primary",
-                    "primary"
-                  )
+                  [sty.ffprimary]: hasVariant($state, "primary", "primary")
                 }
               )}
             >
@@ -1101,9 +1100,10 @@ function PlasmicPriceCard__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "freeBox", "h4", "link", "button"],
-  freeBox: ["freeBox", "h4", "link", "button"],
+  root: ["root", "freeBox", "h4", "ff", "link", "button"],
+  freeBox: ["freeBox", "h4", "ff", "link", "button"],
   h4: ["h4"],
+  ff: ["ff"],
   link: ["link", "button"],
   button: ["button"]
 } as const;
@@ -1114,6 +1114,7 @@ type NodeDefaultElementType = {
   root: "div";
   freeBox: "div";
   h4: "h4";
+  ff: "div";
   link: "a";
   button: typeof Button;
 };
@@ -1180,6 +1181,7 @@ export const PlasmicPriceCard = Object.assign(
     // Helper components rendering sub-elements
     freeBox: makeNodeComponent("freeBox"),
     h4: makeNodeComponent("h4"),
+    ff: makeNodeComponent("ff"),
     link: makeNodeComponent("link"),
     button: makeNodeComponent("button"),
 

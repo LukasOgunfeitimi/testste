@@ -157,6 +157,22 @@ function PlasmicNavbar__RenderFunc(props: {
         hasGap={true}
         className={classNames(projectcss.all, sty.freeBox__nSo8K)}
       >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__flXy
+          )}
+        >
+          <React.Fragment>
+            <span
+              className={"plasmic_default__all plasmic_default__span"}
+              style={{ color: "#FFFFFF" }}
+            >
+              {"TraderRelay"}
+            </span>
+          </React.Fragment>
+        </div>
         <Logo
           data-plasmic-name={"logo"}
           data-plasmic-override={overrides.logo}
@@ -275,6 +291,7 @@ function PlasmicNavbar__RenderFunc(props: {
             data-plasmic-name={"button"}
             data-plasmic-override={overrides.button}
             className={classNames("__wab_instance", sty.button)}
+            color={"blue"}
             label={
               <div
                 className={classNames(
@@ -287,6 +304,19 @@ function PlasmicNavbar__RenderFunc(props: {
               </div>
             }
             size={"large"}
+            type={(() => {
+              try {
+                return undefined;
+              } catch (e) {
+                if (
+                  e instanceof TypeError ||
+                  e?.plasmicType === "PlasmicUndefinedDataError"
+                ) {
+                  return [];
+                }
+                throw e;
+              }
+            })()}
           />
         </Stack__>
       </Stack__>

@@ -60,14 +60,13 @@ import {
 } from "@plasmicapp/react-web/lib/host";
 
 import Navbar from "../../Navbar"; // plasmic-import: DpBLkSbLncjR/component
-import Button from "../../Button"; // plasmic-import: 6KewgYrWypyw/component
 import Section from "../../Section"; // plasmic-import: uAA9RIYmCRv-/component
 import DiagramCard from "../../DiagramCard"; // plasmic-import: -ULqvDTRGAjt/component
+import Button from "../../Button"; // plasmic-import: 6KewgYrWypyw/component
 import ProductCard from "../../ProductCard"; // plasmic-import: NQGponPaAbBk/component
-import DetailAbout from "../../DetailAbout"; // plasmic-import: yEyIJadhvkjP/component
 import PriceSection from "../../PriceSection"; // plasmic-import: pCaF4HoCu-73/component
-import PriceCard from "../../PriceCard"; // plasmic-import: jbl5wdhPqSQq/component
 import FooterSection from "../../FooterSection"; // plasmic-import: KE3yuwb4piWn/component
+import { ReactFlow } from "../../../src/components/ReactFlow"; // plasmic-import: r4KAe4tYCa4Q/codeComponent
 
 import { useScreenVariants as useScreenVariantsiuriY4TFKlwN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: IuriY4tFKlwN/globalVariant
 
@@ -77,7 +76,6 @@ import projectcss from "./plasmic.module.css"; // plasmic-import: jpMEBTjRtpxfYX
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: NsD8WjBcEI-l/css
 
 import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: SK9913SmB_7Y/icon
-import IconArrowRightSvgIcon from "./icons/PlasmicIcon__IconArrowRightSvg"; // plasmic-import: gnkFo-LFFIxJ/icon
 import ChevronDownIcon from "./icons/PlasmicIcon__ChevronDown"; // plasmic-import: 7DEyoDnNAxkl/icon
 
 createPlasmicElementProxy;
@@ -96,17 +94,13 @@ export type PlasmicHomepage__OverridesType = {
   headerHeroSection?: Flex__<"div">;
   navbar?: Flex__<typeof Navbar>;
   h1?: Flex__<"h1">;
-  svg?: Flex__<"svg">;
   diagramSection?: Flex__<typeof Section>;
-  deviceSection?: Flex__<typeof Section>;
-  gallerySection?: Flex__<typeof Section>;
   productSection?: Flex__<typeof Section>;
-  aboutSection?: Flex__<typeof Section>;
+  link?: Flex__<"a"> & Partial<LinkProps>;
   priceSection?: Flex__<typeof PriceSection>;
-  startSection?: Flex__<typeof Section>;
-  h3?: Flex__<"h3">;
-  pricingSection?: Flex__<typeof Section>;
   footerSection?: Flex__<typeof FooterSection>;
+  section?: Flex__<typeof Section>;
+  reactFlow?: Flex__<typeof ReactFlow>;
 };
 
 export interface DefaultHomepageProps {}
@@ -191,6 +185,60 @@ function PlasmicHomepage__RenderFunc(props: {
             sty.root
           )}
         >
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__hWa9O)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/dark_saa_s_landing_page/images/diagramImgSvg.svg",
+              fullWidth: 300,
+              fullHeight: 100,
+              aspectRatio: 2.987552
+            }}
+          />
+
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__t580P)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"774px"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/dark_saa_s_landing_page/images/ellipseLeftPng.png",
+              fullWidth: 469,
+              fullHeight: 742,
+              aspectRatio: undefined
+            }}
+          />
+
+          <PlasmicImg__
+            alt={""}
+            className={classNames(sty.img__al4Ma)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
+            src={{
+              src: "/plasmic/dark_saa_s_landing_page/images/ellipseRightPng.png",
+              fullWidth: 437,
+              fullHeight: 742,
+              aspectRatio: undefined
+            }}
+          />
+
           <Stack__
             as={"div"}
             data-plasmic-name={"headerHeroSection"}
@@ -198,12 +246,13 @@ function PlasmicHomepage__RenderFunc(props: {
             hasGap={true}
             className={classNames(projectcss.all, sty.headerHeroSection)}
           >
-            <Navbar
-              data-plasmic-name={"navbar"}
-              data-plasmic-override={overrides.navbar}
-              className={classNames("__wab_instance", sty.navbar)}
-            />
-
+            <div className={classNames(projectcss.all, sty.freeBox__q2RvX)}>
+              <Navbar
+                data-plasmic-name={"navbar"}
+                data-plasmic-override={overrides.navbar}
+                className={classNames("__wab_instance", sty.navbar)}
+              />
+            </div>
             <div className={classNames(projectcss.all, sty.freeBox___3JWwj)}>
               <Stack__
                 as={"div"}
@@ -221,9 +270,41 @@ function PlasmicHomepage__RenderFunc(props: {
                       sty.h1
                     )}
                   >
-                    {hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "Analytics for developers can be better"
-                      : "Analytics for \ndevelopers can\nbe better"}
+                    {hasVariant(globalVariants, "screen", "mobileOnly") ? (
+                      "Analytics for developers can be better"
+                    ) : (
+                      <React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ color: "#FFFFFFD9", fontWeight: 700 }}
+                        >
+                          {"Your trades "}
+                        </span>
+                        <React.Fragment>{""}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{
+                            color: "var(--token-Bo4MVXtRy7wt)",
+                            fontWeight: 700
+                          }}
+                        >
+                          {"synced"}
+                        </span>
+                        <React.Fragment>{""}</React.Fragment>
+                        <span
+                          className={
+                            "plasmic_default__all plasmic_default__span"
+                          }
+                          style={{ color: "#FFFFFFD9", fontWeight: 700 }}
+                        >
+                          {" across multiple platforms"}
+                        </span>
+                      </React.Fragment>
+                    )}
                   </h1>
                   <div
                     className={classNames(
@@ -236,106 +317,6 @@ function PlasmicHomepage__RenderFunc(props: {
                       ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                       : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
                   </div>
-                  <Stack__
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__qbfru)}
-                  >
-                    <PlasmicLink__
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        sty.link___4KUUy
-                      )}
-                      component={Link}
-                      href={"#"}
-                      platform={"nextjs"}
-                    >
-                      <Button
-                        className={classNames(
-                          "__wab_instance",
-                          sty.button___6UWm
-                        )}
-                        end={
-                          <IconArrowRightSvgIcon
-                            data-plasmic-name={"svg"}
-                            data-plasmic-override={overrides.svg}
-                            className={classNames(projectcss.all, sty.svg)}
-                            role={"img"}
-                          />
-                        }
-                        iconEnd={true}
-                        label={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__smcga
-                            )}
-                          >
-                            {"Try Demo For Free"}
-                          </div>
-                        }
-                      />
-                    </PlasmicLink__>
-                    <PlasmicLink__
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        sty.link__i90Hq
-                      )}
-                      component={Link}
-                      href={"#"}
-                      platform={"nextjs"}
-                    >
-                      <Button
-                        className={classNames(
-                          "__wab_instance",
-                          sty.button___7Ke8N
-                        )}
-                        color={"blue"}
-                        label={
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
-                              sty.text__lka9A
-                            )}
-                          >
-                            {"Learn More"}
-                          </div>
-                        }
-                        type={"bordered"}
-                      />
-                    </PlasmicLink__>
-                  </Stack__>
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__n6Dd)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__lsv7G)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"none"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? "0px"
-                        : "661px"
-                    }
-                    displayWidth={
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? "100%"
-                        : "100%"
-                    }
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/diagramSvg.svg",
-                      fullWidth: 173,
-                      fullHeight: 150,
-                      aspectRatio: 1.151631
-                    }}
-                  />
                 </div>
               </Stack__>
               <div
@@ -444,60 +425,6 @@ function PlasmicHomepage__RenderFunc(props: {
               </Stack__>
             </div>
           </Stack__>
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__hWa9O)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"auto"}
-            loading={"lazy"}
-            src={{
-              src: "/plasmic/dark_saa_s_landing_page/images/diagramImgSvg.svg",
-              fullWidth: 300,
-              fullHeight: 100,
-              aspectRatio: 2.987552
-            }}
-          />
-
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__t580P)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"774px"}
-            loading={"lazy"}
-            src={{
-              src: "/plasmic/dark_saa_s_landing_page/images/ellipseLeftPng.png",
-              fullWidth: 469,
-              fullHeight: 742,
-              aspectRatio: undefined
-            }}
-          />
-
-          <PlasmicImg__
-            alt={""}
-            className={classNames(sty.img__al4Ma)}
-            displayHeight={"auto"}
-            displayMaxHeight={"none"}
-            displayMaxWidth={"100%"}
-            displayMinHeight={"0"}
-            displayMinWidth={"0"}
-            displayWidth={"auto"}
-            loading={"lazy"}
-            src={{
-              src: "/plasmic/dark_saa_s_landing_page/images/ellipseRightPng.png",
-              fullWidth: 437,
-              fullHeight: 742,
-              aspectRatio: undefined
-            }}
-          />
-
           <Section
             data-plasmic-name={"diagramSection"}
             data-plasmic-override={overrides.diagramSection}
@@ -865,191 +792,9 @@ function PlasmicHomepage__RenderFunc(props: {
             </div>
           </Section>
           <Section
-            data-plasmic-name={"deviceSection"}
-            data-plasmic-override={overrides.deviceSection}
-            background={"dark"}
-            className={classNames("__wab_instance", sty.deviceSection)}
-            size={
-              hasVariant(globalVariants, "screen", "mobileOnly")
-                ? "mobile"
-                : undefined
-            }
-          >
-            <div className={classNames(projectcss.all, sty.freeBox___1Eb2V)}>
-              <h2
-                className={classNames(
-                  projectcss.all,
-                  projectcss.h2,
-                  projectcss.__wab_text,
-                  sty.h2__xdKy0
-                )}
-              >
-                {"Lorem ipsum dolor sit amet"}
-              </h2>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jwTbS
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua."
-                  : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do \neiusmod tempor incididunt ut labore et dolore magna aliqua."}
-              </div>
-            </div>
-            <PlasmicImg__
-              alt={""}
-              className={classNames(sty.img__nDDdO)}
-              displayHeight={"auto"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "360px"
-                  : "100%"
-              }
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              loading={"lazy"}
-              src={{
-                src: "/plasmic/dark_saa_s_landing_page/images/macbookPng.png",
-                fullWidth: 900,
-                fullHeight: 565,
-                aspectRatio: undefined
-              }}
-            />
-          </Section>
-          <Section
-            data-plasmic-name={"gallerySection"}
-            data-plasmic-override={overrides.gallerySection}
-            className={classNames("__wab_instance", sty.gallerySection)}
-            size={"fullContentGallery"}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__fH8A5)}>
-              <div className={classNames(projectcss.all, sty.columns___9Iwvf)}>
-                <div className={classNames(projectcss.all, sty.column___9WAr)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__k9QQd)}
-                    displayHeight={"100%"}
-                    displayMaxHeight={"300px"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/galleri11Png.png",
-                      fullWidth: 700,
-                      fullHeight: 300,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.column__ausOv)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__gc34)}
-                    displayHeight={"100%"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/galleri12Png.png",
-                      fullWidth: 700,
-                      fullHeight: 300,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.column__ptPdw)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__sHLxW)}
-                    displayHeight={"100%"}
-                    displayMaxHeight={"300px"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/galleri13Png.png",
-                      fullWidth: 700,
-                      fullHeight: 300,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-              </div>
-              <div className={classNames(projectcss.all, sty.columns___7HeIo)}>
-                <div className={classNames(projectcss.all, sty.column__jt3Hy)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__k935)}
-                    displayHeight={"100%"}
-                    displayMaxHeight={"300px"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/galleri21Png.png",
-                      fullWidth: 700,
-                      fullHeight: 300,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.column__rFncm)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__xItu1)}
-                    displayHeight={"100%"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/galleri22Png.png",
-                      fullWidth: 700,
-                      fullHeight: 300,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.column__ut0Rb)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__o0Hdb)}
-                    displayHeight={"100%"}
-                    displayMaxHeight={"300px"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/galleri23Png.png",
-                      fullWidth: 700,
-                      fullHeight: 300,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </Section>
-          <Section
             data-plasmic-name={"productSection"}
             data-plasmic-override={overrides.productSection}
+            background={"dark"}
             className={classNames("__wab_instance", sty.productSection)}
             size={
               hasVariant(globalVariants, "screen", "mobileOnly")
@@ -1066,7 +811,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   sty.h2__cz5Zt
                 )}
               >
-                {"Lorem ipsum dolor sit amet"}
+                {"Features"}
               </h2>
               <div
                 className={classNames(
@@ -1080,11 +825,9 @@ function PlasmicHomepage__RenderFunc(props: {
                 }
               </div>
               <PlasmicLink__
-                className={classNames(
-                  projectcss.all,
-                  projectcss.a,
-                  sty.link__uxOLi
-                )}
+                data-plasmic-name={"link"}
+                data-plasmic-override={overrides.link}
+                className={classNames(projectcss.all, projectcss.a, sty.link)}
                 component={Link}
                 href={"#"}
                 platform={"nextjs"}
@@ -1145,380 +888,69 @@ function PlasmicHomepage__RenderFunc(props: {
               </Stack__>
             </div>
           </Section>
-          <Section
-            data-plasmic-name={"aboutSection"}
-            data-plasmic-override={overrides.aboutSection}
-            background={"dark"}
-            className={classNames("__wab_instance", sty.aboutSection)}
-            size={
-              hasVariant(globalVariants, "screen", "mobileOnly")
-                ? "mobile"
-                : undefined
-            }
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__kPKcD)}>
-              <h2
-                className={classNames(
-                  projectcss.all,
-                  projectcss.h2,
-                  projectcss.__wab_text,
-                  sty.h2__vbi8H
-                )}
-              >
-                {hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? "What people say \nabout us"
-                  : "What people say about us"}
-              </h2>
-              <div className={classNames(projectcss.all, sty.freeBox__sRm0P)}>
-                <div className={classNames(projectcss.all, sty.freeBox__kSqe6)}>
-                  <PlasmicImg__
-                    alt={""}
-                    className={classNames(sty.img__pjtEk)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={
-                      hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? "339px"
-                        : "100%"
-                    }
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"auto"}
-                    loading={"lazy"}
-                    src={{
-                      src: "/plasmic/dark_saa_s_landing_page/images/aboutImgPng.png",
-                      fullWidth: 400,
-                      fullHeight: 500,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.freeBox__axJIy)}>
-                  <h2
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2__diR9L
-                    )}
-                  >
-                    {"Michael Justin"}
-                  </h2>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__cfPxR)}
-                  >
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img__qu0E1)}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={"auto"}
-                      loading={"lazy"}
-                      src={{
-                        src: "/plasmic/dark_saa_s_landing_page/images/aboutIpsumPng.png",
-                        fullWidth: 152,
-                        fullHeight: 40,
-                        aspectRatio: undefined
-                      }}
-                    />
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__evkFe
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? "CEO Company"
-                        : "CEO Company"}
-                    </div>
-                  </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__f3VqS)}
-                  >
-                    <PlasmicImg__
-                      alt={""}
-                      className={classNames(sty.img___3GNoe)}
-                      displayHeight={"auto"}
-                      displayMaxHeight={"none"}
-                      displayMaxWidth={"100%"}
-                      displayMinHeight={"0"}
-                      displayMinWidth={"0"}
-                      displayWidth={
-                        hasVariant(globalVariants, "screen", "mobileOnly")
-                          ? "auto"
-                          : "auto"
-                      }
-                      loading={"lazy"}
-                      src={{
-                        src: "/plasmic/dark_saa_s_landing_page/images/backtipPng.png",
-                        fullWidth: 34,
-                        fullHeight: 32,
-                        aspectRatio: undefined
-                      }}
-                    />
-                  </div>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wQpPr
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                      : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
-                  </div>
-                </div>
-              </div>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___97QUb)}
-              >
-                <DetailAbout
-                  className={classNames(
-                    "__wab_instance",
-                    sty.detailAbout___4ZBv5
-                  )}
-                />
-
-                <DetailAbout
-                  className={classNames(
-                    "__wab_instance",
-                    sty.detailAbout__xQfdf
-                  )}
-                />
-
-                <DetailAbout
-                  className={classNames(
-                    "__wab_instance",
-                    sty.detailAbout__lpv9F
-                  )}
-                />
-              </Stack__>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__uAhI6)}
-              >
-                <DetailAbout
-                  className={classNames(
-                    "__wab_instance",
-                    sty.detailAbout__kcyqQ
-                  )}
-                />
-
-                <DetailAbout
-                  className={classNames(
-                    "__wab_instance",
-                    sty.detailAbout__iLRmo
-                  )}
-                />
-
-                <DetailAbout
-                  className={classNames(
-                    "__wab_instance",
-                    sty.detailAbout___5OOjf
-                  )}
-                />
-              </Stack__>
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__h1NPn)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/dark_saa_s_landing_page/images/arrowLeftPng.png",
-                  fullWidth: 24,
-                  fullHeight: 24,
-                  aspectRatio: undefined
-                }}
-              />
-
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img___2Te4C)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/dark_saa_s_landing_page/images/arrowRightPng2.png",
-                  fullWidth: 24,
-                  fullHeight: 24,
-                  aspectRatio: undefined
-                }}
-              />
-            </div>
-          </Section>
           <PriceSection
             data-plasmic-name={"priceSection"}
             data-plasmic-override={overrides.priceSection}
             className={classNames("__wab_instance", sty.priceSection)}
           />
 
-          <Section
-            data-plasmic-name={"startSection"}
-            data-plasmic-override={overrides.startSection}
-            className={classNames("__wab_instance", sty.startSection)}
-            size={"fullContentWidth"}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__bSUl)}>
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img___07Oho)}
-                displayHeight={"auto"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"auto"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/dark_saa_s_landing_page/images/pricingImgSvg.svg",
-                  fullWidth: 300,
-                  fullHeight: 67,
-                  aspectRatio: 4.468401
-                }}
-              />
-
-              <div className={classNames(projectcss.all, sty.columns__iGyr)}>
-                <div className={classNames(projectcss.all, sty.column__on7OF)}>
-                  <h3
-                    data-plasmic-name={"h3"}
-                    data-plasmic-override={overrides.h3}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h3,
-                      projectcss.__wab_text,
-                      sty.h3
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "Start using our product today"
-                      : "Start using our product today"}
-                  </h3>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___3B9Dz
-                    )}
-                  >
-                    {hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "Faster than free analytics tools. Access to all your data, with respect to the privacy of your users."
-                      : "Faster than free analytics tools. Access to all your data, with respect to the privacy of your users."}
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.column___4AZij)}>
-                  <PlasmicLink__
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.a,
-                      sty.link__xceLw
-                    )}
-                    component={Link}
-                    href={"#"}
-                    platform={"nextjs"}
-                  >
-                    <Button
-                      className={classNames(
-                        "__wab_instance",
-                        sty.button___5H0N
-                      )}
-                      label={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text___2Xef9
-                          )}
-                        >
-                          {"Get Started"}
-                        </div>
-                      }
-                      size={"extraLarge"}
-                      type={"soft"}
-                    />
-                  </PlasmicLink__>
-                </div>
-              </div>
-            </div>
-          </Section>
-          <Section
-            data-plasmic-name={"pricingSection"}
-            data-plasmic-override={overrides.pricingSection}
-            className={classNames("__wab_instance", sty.pricingSection)}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__w2Kio)}>
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.columns___9IuF)}
-              >
-                <div className={classNames(projectcss.all, sty.column__zjNsd)}>
-                  <PriceCard
-                    borders={["flatLeft"]}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.priceCard__ehAr
-                    )}
-                  />
-                </div>
-                <div className={classNames(projectcss.all, sty.column__keakf)}>
-                  <PriceCard
-                    borders={["flatCenter"]}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.priceCard__fpyls
-                    )}
-                  />
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__gvQtc)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__r7Uul
-                      )}
-                    >
-                      {hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? "We Recommended"
-                        : "We Recommended"}
-                    </div>
-                  </div>
-                </div>
-                <div className={classNames(projectcss.all, sty.column__hWkCl)}>
-                  <PriceCard
-                    borders={["flatRight"]}
-                    className={classNames(
-                      "__wab_instance",
-                      sty.priceCard__fv8N7
-                    )}
-                  />
-                </div>
-              </Stack__>
-            </div>
-          </Section>
           <FooterSection
             data-plasmic-name={"footerSection"}
             data-plasmic-override={overrides.footerSection}
             className={classNames("__wab_instance", sty.footerSection)}
+          />
+
+          <Section
+            data-plasmic-name={"section"}
+            data-plasmic-override={overrides.section}
+            className={classNames("__wab_instance", sty.section)}
+          />
+
+          <Button className={classNames("__wab_instance", sty.button__rAYo)} />
+
+          <ReactFlow
+            data-plasmic-name={"reactFlow"}
+            data-plasmic-override={overrides.reactFlow}
+            accountData={{
+              master: {
+                platform: "MetaTrader 5",
+                accountNumber: "4533452",
+                tracking: true,
+                ping: 2,
+                connected: true
+              },
+              slaves: [
+                {
+                  platform: "cTrader",
+                  accountNumber: "4535",
+                  tracking: true,
+                  ping: 2,
+                  connected: true
+                },
+                {
+                  platform: "TradeLocker",
+                  accountNumber: "67654435",
+                  tracking: true,
+                  ping: 2,
+                  connected: false
+                },
+                {
+                  platform: "TradeLocker",
+                  accountNumber: "67654435",
+                  tracking: true,
+                  ping: 2,
+                  connected: false
+                },
+                {
+                  platform: "TradeLocker",
+                  accountNumber: "67654435",
+                  tracking: true,
+                  ping: 2,
+                  connected: false
+                }
+              ]
+            }}
+            className={classNames("__wab_instance", sty.reactFlow)}
           />
         </div>
       </div>
@@ -1532,32 +964,24 @@ const PlasmicDescendants = {
     "headerHeroSection",
     "navbar",
     "h1",
-    "svg",
     "diagramSection",
-    "deviceSection",
-    "gallerySection",
     "productSection",
-    "aboutSection",
+    "link",
     "priceSection",
-    "startSection",
-    "h3",
-    "pricingSection",
-    "footerSection"
+    "footerSection",
+    "section",
+    "reactFlow"
   ],
-  headerHeroSection: ["headerHeroSection", "navbar", "h1", "svg"],
+  headerHeroSection: ["headerHeroSection", "navbar", "h1"],
   navbar: ["navbar"],
   h1: ["h1"],
-  svg: ["svg"],
   diagramSection: ["diagramSection"],
-  deviceSection: ["deviceSection"],
-  gallerySection: ["gallerySection"],
-  productSection: ["productSection"],
-  aboutSection: ["aboutSection"],
+  productSection: ["productSection", "link"],
+  link: ["link"],
   priceSection: ["priceSection"],
-  startSection: ["startSection", "h3"],
-  h3: ["h3"],
-  pricingSection: ["pricingSection"],
-  footerSection: ["footerSection"]
+  footerSection: ["footerSection"],
+  section: ["section"],
+  reactFlow: ["reactFlow"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -1567,17 +991,13 @@ type NodeDefaultElementType = {
   headerHeroSection: "div";
   navbar: typeof Navbar;
   h1: "h1";
-  svg: "svg";
   diagramSection: typeof Section;
-  deviceSection: typeof Section;
-  gallerySection: typeof Section;
   productSection: typeof Section;
-  aboutSection: typeof Section;
+  link: "a";
   priceSection: typeof PriceSection;
-  startSection: typeof Section;
-  h3: "h3";
-  pricingSection: typeof Section;
   footerSection: typeof FooterSection;
+  section: typeof Section;
+  reactFlow: typeof ReactFlow;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1643,17 +1063,13 @@ export const PlasmicHomepage = Object.assign(
     headerHeroSection: makeNodeComponent("headerHeroSection"),
     navbar: makeNodeComponent("navbar"),
     h1: makeNodeComponent("h1"),
-    svg: makeNodeComponent("svg"),
     diagramSection: makeNodeComponent("diagramSection"),
-    deviceSection: makeNodeComponent("deviceSection"),
-    gallerySection: makeNodeComponent("gallerySection"),
     productSection: makeNodeComponent("productSection"),
-    aboutSection: makeNodeComponent("aboutSection"),
+    link: makeNodeComponent("link"),
     priceSection: makeNodeComponent("priceSection"),
-    startSection: makeNodeComponent("startSection"),
-    h3: makeNodeComponent("h3"),
-    pricingSection: makeNodeComponent("pricingSection"),
     footerSection: makeNodeComponent("footerSection"),
+    section: makeNodeComponent("section"),
+    reactFlow: makeNodeComponent("reactFlow"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

@@ -86,7 +86,6 @@ export const PlasmicLogo__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicLogo__OverridesType = {
   root?: Flex__<"a"> & Partial<LinkProps>;
-  img?: Flex__<typeof PlasmicImg__>;
 };
 
 export interface DefaultLogoProps {
@@ -176,53 +175,18 @@ function PlasmicLogo__RenderFunc(props: {
       component={Link}
       href={`/`}
       platform={"nextjs"}
-    >
-      <PlasmicImg__
-        data-plasmic-name={"img"}
-        data-plasmic-override={overrides.img}
-        alt={""}
-        className={classNames(sty.img, {
-          [sty.img_50Opaque]: hasVariant($state, "_50Opaque", "_50Opaque"),
-          [sty.imgsmallLogo]: hasVariant($state, "smallLogo", "smallLogo")
-        })}
-        displayHeight={"100%"}
-        displayMaxHeight={"none"}
-        displayMaxWidth={
-          hasVariant($state, "smallLogo", "smallLogo") ? "50px" : "none"
-        }
-        displayMinHeight={"0"}
-        displayMinWidth={"0"}
-        displayWidth={"100%"}
-        src={
-          hasVariant($state, "smallLogo", "smallLogo")
-            ? {
-                src: "/plasmic/dark_saa_s_landing_page/images/lineBranchPng.png",
-                fullWidth: 100,
-                fullHeight: 100,
-                aspectRatio: undefined
-              }
-            : {
-                src: "/plasmic/dark_saa_s_landing_page/images/logoPng.png",
-                fullWidth: 224,
-                fullHeight: 50,
-                aspectRatio: undefined
-              }
-        }
-      />
-    </PlasmicLink__>
+    />
   ) as React.ReactElement | null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "img"],
-  img: ["img"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   (typeof PlasmicDescendants)[T][number];
 type NodeDefaultElementType = {
   root: "a";
-  img: typeof PlasmicImg__;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -285,7 +249,6 @@ export const PlasmicLogo = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    img: makeNodeComponent("img"),
 
     // Metadata about props expected for PlasmicLogo
     internalVariantProps: PlasmicLogo__VariantProps,

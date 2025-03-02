@@ -185,7 +185,7 @@ function PlasmicProductCard__RenderFunc(props: {
         >
           {hasVariant(globalVariants, "screen", "mobileOnly")
             ? "Lorem ipsum dolor sit amet"
-            : "Lorem ipsum dolor sit amet"}
+            : "Propfirm Tracker"}
         </h3>
         <div
           data-plasmic-name={"text"}
@@ -198,7 +198,7 @@ function PlasmicProductCard__RenderFunc(props: {
         >
           {hasVariant(globalVariants, "screen", "mobileOnly")
             ? "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
+            : "Track your propfirm accounts\nin real time."}
         </div>
       </div>
     </div>
