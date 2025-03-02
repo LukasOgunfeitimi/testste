@@ -66,7 +66,7 @@ import Button from "../../Button"; // plasmic-import: 6KewgYrWypyw/component
 import ProductCard from "../../ProductCard"; // plasmic-import: NQGponPaAbBk/component
 import PriceSection from "../../PriceSection"; // plasmic-import: pCaF4HoCu-73/component
 import FooterSection from "../../FooterSection"; // plasmic-import: KE3yuwb4piWn/component
-import { ReactFlow } from "../../../src/components/ReactFlow"; // plasmic-import: pcTHZkFmYikY/codeComponent
+import NodeReactFlow from "../../../src/components/ReactFlow"; // plasmic-import: c9fAj3oVQEYP/codeComponent
 
 import { useScreenVariants as useScreenVariantsiuriY4TFKlwN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: IuriY4tFKlwN/globalVariant
 
@@ -100,7 +100,7 @@ export type PlasmicHomepage__OverridesType = {
   priceSection?: Flex__<typeof PriceSection>;
   footerSection?: Flex__<typeof FooterSection>;
   section?: Flex__<typeof Section>;
-  test?: Flex__<typeof ReactFlow>;
+  nodeReactFlow?: Flex__<typeof NodeReactFlow>;
 };
 
 export interface DefaultHomepageProps {}
@@ -909,9 +909,9 @@ function PlasmicHomepage__RenderFunc(props: {
 
           <Button className={classNames("__wab_instance", sty.button__rAYo)} />
 
-          <ReactFlow
-            data-plasmic-name={"test"}
-            data-plasmic-override={overrides.test}
+          <NodeReactFlow
+            data-plasmic-name={"nodeReactFlow"}
+            data-plasmic-override={overrides.nodeReactFlow}
             accountData={{
               master: {
                 platform: "MetaTrader 5",
@@ -951,7 +951,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 }
               ]
             }}
-            className={classNames("__wab_instance", sty.test)}
+            className={classNames("__wab_instance", sty.nodeReactFlow)}
           />
         </div>
       </div>
@@ -971,7 +971,7 @@ const PlasmicDescendants = {
     "priceSection",
     "footerSection",
     "section",
-    "test"
+    "nodeReactFlow"
   ],
   headerHeroSection: ["headerHeroSection", "navbar", "h1"],
   navbar: ["navbar"],
@@ -982,7 +982,7 @@ const PlasmicDescendants = {
   priceSection: ["priceSection"],
   footerSection: ["footerSection"],
   section: ["section"],
-  test: ["test"]
+  nodeReactFlow: ["nodeReactFlow"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -998,7 +998,7 @@ type NodeDefaultElementType = {
   priceSection: typeof PriceSection;
   footerSection: typeof FooterSection;
   section: typeof Section;
-  test: typeof ReactFlow;
+  nodeReactFlow: typeof NodeReactFlow;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1070,7 +1070,7 @@ export const PlasmicHomepage = Object.assign(
     priceSection: makeNodeComponent("priceSection"),
     footerSection: makeNodeComponent("footerSection"),
     section: makeNodeComponent("section"),
-    test: makeNodeComponent("test"),
+    nodeReactFlow: makeNodeComponent("nodeReactFlow"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

@@ -656,9 +656,9 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         },
         {
-          "id": "pcTHZkFmYikY",
-          "name": "ReactFlow",
-          "displayName": "ReactFlow",
+          "id": "c9fAj3oVQEYP",
+          "name": "NodeReactFlow",
+          "displayName": "NodeReactFlow",
           "componentImportPath": "./src/components/ReactFlow.tsx"
         }
       ],
