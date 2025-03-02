@@ -66,7 +66,7 @@ import Button from "../../Button"; // plasmic-import: 6KewgYrWypyw/component
 import ProductCard from "../../ProductCard"; // plasmic-import: NQGponPaAbBk/component
 import PriceSection from "../../PriceSection"; // plasmic-import: pCaF4HoCu-73/component
 import FooterSection from "../../FooterSection"; // plasmic-import: KE3yuwb4piWn/component
-import { ReactFlow } from "../../../src/components/ReactFlow"; // plasmic-import: r4KAe4tYCa4Q/codeComponent
+import { ReactFlow } from "../../../src/components/ReactFlow"; // plasmic-import: pcTHZkFmYikY/codeComponent
 
 import { useScreenVariants as useScreenVariantsiuriY4TFKlwN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: IuriY4tFKlwN/globalVariant
 
@@ -100,7 +100,7 @@ export type PlasmicHomepage__OverridesType = {
   priceSection?: Flex__<typeof PriceSection>;
   footerSection?: Flex__<typeof FooterSection>;
   section?: Flex__<typeof Section>;
-  reactFlow?: Flex__<typeof ReactFlow>;
+  test?: Flex__<typeof ReactFlow>;
 };
 
 export interface DefaultHomepageProps {}
@@ -903,14 +903,15 @@ function PlasmicHomepage__RenderFunc(props: {
           <Section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
+            children={null}
             className={classNames("__wab_instance", sty.section)}
           />
 
           <Button className={classNames("__wab_instance", sty.button__rAYo)} />
 
           <ReactFlow
-            data-plasmic-name={"reactFlow"}
-            data-plasmic-override={overrides.reactFlow}
+            data-plasmic-name={"test"}
+            data-plasmic-override={overrides.test}
             accountData={{
               master: {
                 platform: "MetaTrader 5",
@@ -922,7 +923,7 @@ function PlasmicHomepage__RenderFunc(props: {
               slaves: [
                 {
                   platform: "cTrader",
-                  accountNumber: "4535",
+                  accountNumber: "4535355",
                   tracking: true,
                   ping: 2,
                   connected: true
@@ -950,7 +951,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 }
               ]
             }}
-            className={classNames("__wab_instance", sty.reactFlow)}
+            className={classNames("__wab_instance", sty.test)}
           />
         </div>
       </div>
@@ -970,7 +971,7 @@ const PlasmicDescendants = {
     "priceSection",
     "footerSection",
     "section",
-    "reactFlow"
+    "test"
   ],
   headerHeroSection: ["headerHeroSection", "navbar", "h1"],
   navbar: ["navbar"],
@@ -981,7 +982,7 @@ const PlasmicDescendants = {
   priceSection: ["priceSection"],
   footerSection: ["footerSection"],
   section: ["section"],
-  reactFlow: ["reactFlow"]
+  test: ["test"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -997,7 +998,7 @@ type NodeDefaultElementType = {
   priceSection: typeof PriceSection;
   footerSection: typeof FooterSection;
   section: typeof Section;
-  reactFlow: typeof ReactFlow;
+  test: typeof ReactFlow;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1069,7 +1070,7 @@ export const PlasmicHomepage = Object.assign(
     priceSection: makeNodeComponent("priceSection"),
     footerSection: makeNodeComponent("footerSection"),
     section: makeNodeComponent("section"),
-    reactFlow: makeNodeComponent("reactFlow"),
+    test: makeNodeComponent("test"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
