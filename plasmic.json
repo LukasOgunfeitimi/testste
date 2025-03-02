@@ -659,7 +659,7 @@
           "id": "c9fAj3oVQEYP",
           "name": "NodeReactFlow",
           "displayName": "NodeReactFlow",
-          "componentImportPath": "./src/components/ReactFlow.tsx"
+          "componentImportPath": "./ReactFlow.tsx"
         }
       ],
       "customFunctions": []
