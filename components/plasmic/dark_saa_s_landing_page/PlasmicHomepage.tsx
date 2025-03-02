@@ -67,6 +67,7 @@ import ProductCard from "../../ProductCard"; // plasmic-import: NQGponPaAbBk/com
 import PriceSection from "../../PriceSection"; // plasmic-import: pCaF4HoCu-73/component
 import FooterSection from "../../FooterSection"; // plasmic-import: KE3yuwb4piWn/component
 import { NodeReactFlow } from "../../../src/components/ReactFlow"; // plasmic-import: c9fAj3oVQEYP/codeComponent
+import { DataFetcher } from "@plasmicpkgs/plasmic-query";
 
 import { useScreenVariants as useScreenVariantsiuriY4TFKlwN } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: IuriY4tFKlwN/globalVariant
 
@@ -101,6 +102,7 @@ export type PlasmicHomepage__OverridesType = {
   footerSection?: Flex__<typeof FooterSection>;
   section?: Flex__<typeof Section>;
   nodeReactFlow?: Flex__<typeof NodeReactFlow>;
+  httpRestApiFetcher?: Flex__<typeof DataFetcher>;
 };
 
 export interface DefaultHomepageProps {}
@@ -953,6 +955,23 @@ function PlasmicHomepage__RenderFunc(props: {
             }}
             className={classNames("__wab_instance", sty.nodeReactFlow)}
           />
+
+          <DataFetcher
+            data-plasmic-name={"httpRestApiFetcher"}
+            data-plasmic-override={overrides.httpRestApiFetcher}
+            className={classNames("__wab_instance", sty.httpRestApiFetcher)}
+            dataName={"fetchedData"}
+            errorDisplay={
+              <DataCtxReader__>{$ctx => "Error fetching data"}</DataCtxReader__>
+            }
+            errorName={"fetchError"}
+            loadingDisplay={
+              <DataCtxReader__>{$ctx => "Loading..."}</DataCtxReader__>
+            }
+            method={"GET"}
+            noLayout={false}
+            url={"https://api.github.com/users/plasmicapp/repos"}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -971,7 +990,8 @@ const PlasmicDescendants = {
     "priceSection",
     "footerSection",
     "section",
-    "nodeReactFlow"
+    "nodeReactFlow",
+    "httpRestApiFetcher"
   ],
   headerHeroSection: ["headerHeroSection", "navbar", "h1"],
   navbar: ["navbar"],
@@ -982,7 +1002,8 @@ const PlasmicDescendants = {
   priceSection: ["priceSection"],
   footerSection: ["footerSection"],
   section: ["section"],
-  nodeReactFlow: ["nodeReactFlow"]
+  nodeReactFlow: ["nodeReactFlow"],
+  httpRestApiFetcher: ["httpRestApiFetcher"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -999,6 +1020,7 @@ type NodeDefaultElementType = {
   footerSection: typeof FooterSection;
   section: typeof Section;
   nodeReactFlow: typeof NodeReactFlow;
+  httpRestApiFetcher: typeof DataFetcher;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -1071,6 +1093,7 @@ export const PlasmicHomepage = Object.assign(
     footerSection: makeNodeComponent("footerSection"),
     section: makeNodeComponent("section"),
     nodeReactFlow: makeNodeComponent("nodeReactFlow"),
+    httpRestApiFetcher: makeNodeComponent("httpRestApiFetcher"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,

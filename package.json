@@ -11,6 +11,7 @@
   "dependencies": {
     "@plasmicapp/cli": "^0.1.335",
     "@plasmicapp/react-web": "^0.2.374",
+    "@plasmicpkgs/plasmic-query": "^0.0.230",
     "@plasmicpkgs/react-aria": "^0.0.118",
     "next": "14.2.24",
     "react": "^18",
